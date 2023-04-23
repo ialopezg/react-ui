@@ -1,0 +1,41 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - stable
+
+branches:
+  only:
+    - main
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm update
+
+install:
+  - npm install -g codecov
+
+script:
+  - npm run lint
+  - npm run build
+  - npm test
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    codecov;
+    fi
+
+before_deploy:
+  - npm run build-storybook
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: storybook-static/
+  on:
+    branch: main
