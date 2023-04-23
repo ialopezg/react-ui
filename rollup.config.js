@@ -19,6 +19,7 @@ const basePath = pkg.main
 const globals = {
   clsx: 'Clsx',
   react: 'React',
+  'react-dom': 'ReactDOM',
   'react/jsx-runtime': 'ReactJSXRuntime',
   'prop-types': 'PropTypes',
 };
@@ -39,9 +40,7 @@ export default [
         ...output,
       },
       {
-        file: `${basePath}/${filename
-          .replace(/^(.*[/\\])?/, '')
-          .replace(/(\.[^.]*)$/, '')}.min.js`,
+        file: `dist/cjs/index.min.js`,
         format: 'cjs',
         ...output,
         plugins: [terser()],
@@ -52,9 +51,7 @@ export default [
         ...output,
       },
       {
-        file: `${basePath}/esm/${filename
-          .replace(/^(.*[/\\])?/, '')
-          .replace(/(\.[^.]*)$/, '')}.min.js`,
+        file: `dist/esm/index.min.js`,
         format: 'esm',
         ...output,
         plugins: [terser()],
@@ -82,7 +79,7 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/esm/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     external: [/\.css$/],
     plugins: [dts()],
