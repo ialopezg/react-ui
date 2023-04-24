@@ -37,7 +37,3 @@ lerna-debug.log*
 
 # StoryBook
 /storybook-static
-
-# local data
-.env
-/storage

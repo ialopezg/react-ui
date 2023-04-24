@@ -1,12 +1,31 @@
-import React, { FC } from 'react';
+import { createRef, FC } from "react";
 
-import './Button.css';
 import { ButtonProps } from './Button.types';
 
-const Button: FC<ButtonProps> = ({ type, text, onClick }) => {
+import './Button.styles.css';
+
+const Button: FC<ButtonProps> = (props, context) => {
+  const {
+    children,
+    type,
+    disabled,
+    onClick,
+    variant,
+    ...rest
+  } = props;
+  const buttonRef = createRef<HTMLButtonElement>();
+
   return (
-    <button type='button' className={`Button Button-${type}`} onClick={onClick}>
-      {text}
+    <button
+      ref={buttonRef}
+      type={type || 'button'}
+      className={`btn ${variant ? `btn-${variant}` : ''}`}
+      style={{ opacity: disabled ? 0.5 : undefined }}
+      disabled={disabled}
+      onClick={onClick}
+      {...rest}
+    >
+      {children}
     </button>
   );
 };

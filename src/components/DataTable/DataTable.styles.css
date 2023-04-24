@@ -1,0 +1,45 @@
+.datatable {
+    display: table;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+.datatable-header {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    overflow: auto;
+}
+
+.datatable-header-cell,
+.datatable-cell {
+    display: table-cell;
+    padding: 5px 25px;
+    text-align: left;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.datatable-header-cell {
+    height: 50px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.datatable-body {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.datatable-row {
+    display: table-row;
+    color: inherit;
+    outline: none;
+    top: 50%;
+}
+
+.datatable-cell {
+    white-space: nowrap;
+}

@@ -1,7 +1,9 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, PropsWithChildren } from "react";
 
-export interface ButtonProps {
-  type: 'primary' | 'secondary' | 'error';
-  text: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+export interface ButtonProps extends PropsWithChildren {
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  text?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: "primary" | "secondary" | "danger";
 }

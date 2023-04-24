@@ -14,5 +14,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "emitDeclarationOnly": true
-  }
+  },
+  "exclude": [
+    "dist",
+    "src/setupTests.ts",
+    "src/stories/**/*"
+  ]
 }

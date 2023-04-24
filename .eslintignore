@@ -3,4 +3,4 @@ coverage
 dist/
 storybook-static/
 src/stories
-src/__test__
+tests
