@@ -5,13 +5,13 @@ language: node_js
 node_js:
   - stable
 
-branches:
-  only:
-    - main
-
 cache:
   directories:
     - node_modules
+
+branches:
+  only:
+    - main
 
 before_install:
   - npm update
