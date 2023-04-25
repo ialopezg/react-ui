@@ -1,10 +1,10 @@
 import { createRef, FC } from "react";
 
-import { ButtonProps } from './Button.types';
+import { ButtonProps } from './Button.props';
 
 import './Button.styles.css';
 
-const Button: FC<ButtonProps> = (props, context) => {
+export const Button: FC<ButtonProps> = (props, context) => {
   const {
     children,
     type,
@@ -29,5 +29,3 @@ const Button: FC<ButtonProps> = (props, context) => {
     </button>
   );
 };
-
-export default Button;

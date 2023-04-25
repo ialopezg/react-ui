@@ -43,3 +43,13 @@
 .datatable-cell {
     white-space: nowrap;
 }
+
+.bad-setup,
+.no-data {
+    text-align: center;
+    width: 100%;
+}
+
+.bad-setup {
+    color: red;
+}

@@ -22,6 +22,9 @@ const globals = {
   'react-dom': 'ReactDOM',
   'react/jsx-runtime': 'ReactJSXRuntime',
   'prop-types': 'PropTypes',
+  '@mui/material': 'Mui',
+  '@emotion/react': 'EmotionReact',
+  '@emotion/styled': 'EmotionStyled',
 };
 
 const output = {

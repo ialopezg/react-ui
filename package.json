@@ -19,6 +19,7 @@
     "format": "prettier 'src/**/*.{js,ts,tsx}' --write",
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
+    "postinstall": "npx npm-install-peers",
     "prebuild": "rimraf dist",
     "prepare": "husky install",
     "test": "jest --verbose",
@@ -107,6 +108,9 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "@mui/material": ">=5",
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11"
   }
 }

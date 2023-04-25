@@ -1,1 +1,1 @@
-export { default } from "./DataTableContainer";
+export * from './DataTable';

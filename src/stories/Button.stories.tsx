@@ -18,6 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  render: () => (<Button variant="primary">Button</Button>),
   args: {
     variant: "primary",
     disabled: false,

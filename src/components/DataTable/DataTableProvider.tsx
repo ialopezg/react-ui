@@ -1,30 +1,35 @@
-import { createContext, FC, PropsWithChildren, useContext, useState } from 'react';
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useContext,
+  useState,
+} from 'react';
 
-export interface DataTableState {
-  counter: number;
-}
-
-export const initialDataTableState: DataTableState = {
-  counter: 0,
-};
+import {
+  DataColumns,
+  DataRows,
+  DataTableOptions,
+  initialOptions,
+} from './prototypes';
 
 export interface DataTableContextProps {
-  state: DataTableState;
-  updateState: (updates: Partial<DataTableState>) => void;
+  state: DataTableOptions;
+  updateState: (updates: Partial<DataTableOptions>) => void;
 }
 
 export const initialDataTableOptions: DataTableContextProps = {
-  state: initialDataTableState,
-  updateState: (_updates: Partial<DataTableState>) => {},
+  state: initialOptions,
+  updateState: () => {},
 };
 
 export const DataTableContext = createContext<DataTableContextProps>(initialDataTableOptions);
 
 export const DataTableProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [state, setState] = useState<DataTableState>(initialDataTableOptions.state);
+  const [state, setState] = useState<DataTableOptions>(initialDataTableOptions.state);
 
-  const updateState = (updates: Partial<DataTableState>) => {
-    const updatedState = { ...state, ...updates } as DataTableState;
+  const updateState = (updates: Partial<DataTableOptions>) => {
+    const updatedState = { ...state, ...updates } as DataTableOptions;
 
     setState(updatedState);
   }
@@ -42,4 +47,23 @@ export const useDataTableState = () => {
   const { state } = useDataTable();
 
   return state;
+};
+
+export const useDataTableData = () => {
+  const { data } = useDataTableState();
+
+  return data;
+};
+
+export const useDataTableColumns = (): DataColumns => {
+  const { columns } = useDataTableData();
+
+  return columns;
+};
+
+
+export const useDataTableRows = (): DataRows => {
+  const { rows } = useDataTableData();
+
+  return rows || [];
 };
